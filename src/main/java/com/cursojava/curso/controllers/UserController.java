@@ -22,8 +22,8 @@ public class UserController {
         return user; //Retornamos en formato JSON el objeto user
     }
 
-    @RequestMapping(value = "usuario")
-    public List<User> getUser () {
+    @RequestMapping(value = "usuarios")
+    public List<User> getUsers () {
 
         List <User> usuarios = new ArrayList<>(); //Creamos el array list para nuestros usuarios
 
