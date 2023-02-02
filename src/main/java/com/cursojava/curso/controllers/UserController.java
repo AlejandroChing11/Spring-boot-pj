@@ -26,10 +26,16 @@ public class UserController {
         return user; //Retornamos en formato JSON el objeto user
     }
 
-    @RequestMapping(value = "api/usuarios")
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
     public List<User> getUsers () {
         return usuarioDao.getUsers();
     }
+
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
+    public void registrar () {
+
+    }
+
 
     @RequestMapping(value = "api/usuario2")
     public User editar () {
