@@ -2,6 +2,7 @@ package com.cursojava.curso.dao;
 
 import com.cursojava.curso.models.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
