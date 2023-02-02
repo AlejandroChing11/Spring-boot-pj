@@ -1,7 +1,9 @@
 package com.cursojava.curso.controllers;
 
 import com.cursojava.curso.dao.UserDAO;
+import com.cursojava.curso.dao.UserDaoImp;
 import com.cursojava.curso.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @RestController
 public class UserController {
+    @Autowired
+    private UserDAO usuarioDao;
 
     @RequestMapping(value = "usuario/{id}")
     public User getUser (@PathVariable Long id) {
@@ -25,37 +29,7 @@ public class UserController {
 
     @RequestMapping(value = "usuarios")
     public List<User> getUsers () {
-
-        List <User> usuarios = new ArrayList<>(); //Creamos el array list para nuestros usuarios
-
-        User user = new User(); //Creacion del objeto
-        user.setId(1102L);
-        user.setName("Alejandro"); //Seteamos el name
-        user.setLastName("Ching"); //Seteamos last name OJO TODO AL OBJETO
-        user.setEmail("Alejandroching2004@hotmail.com"); //Seteamos el email
-        user.setPhoneNumber("2456788"); //Seteamos el phone number
-
-
-        User user2 = new User(); //Creacion del objeto
-        user2.setId(0110L);
-        user2.setName("Sandra"); //Seteamos el name
-        user2.setLastName("Franco"); //Seteamos last name OJO TODO AL OBJETO
-        user2.setEmail("SandraFranco@hotmail.com"); //Seteamos el email
-        user2.setPhoneNumber("24567343"); //Seteamos el phone number
-
-
-        User user3 = new User(); //Creacion del objeto
-        user3.setId(4780L);
-        user3.setName("Marlon"); //Seteamos el name
-        user3.setLastName("Ching"); //Seteamos last name OJO TODO AL OBJETO
-        user3.setEmail("Marlon@hotmail.com"); //Seteamos el email
-        user3.setPhoneNumber("2456343"); //Seteamos el phone number
-
-        usuarios.add(user);
-        usuarios.add(user2);
-        usuarios.add(user3);
-
-        return usuarios;
+        return usuarioDao.getUsers();
     }
 
     @RequestMapping(value = "usuario2")
