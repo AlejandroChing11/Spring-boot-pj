@@ -10,6 +10,5 @@ public interface UserDAO {
     List<User> getUsers();
 
 
-
-
+    void eliminar(Long id);
 }
