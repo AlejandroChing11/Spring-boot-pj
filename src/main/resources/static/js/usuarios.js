@@ -43,6 +43,10 @@ document.querySelector("#usuarios tbody").outerHTML = listadoHtml;
 
 
 async function eliminarUsuarios(id) {
+  if (!confirm("¿Desea eliminar este usuario? ")) {
+      return;
+  }
+
 
   const request = await fetch('api/usuarios/' + id, {
     method: 'DELETE',
@@ -51,4 +55,8 @@ async function eliminarUsuarios(id) {
       'Content-Type': 'application/json'
     },
   });
+
+  location.reload();
+
+
 }
