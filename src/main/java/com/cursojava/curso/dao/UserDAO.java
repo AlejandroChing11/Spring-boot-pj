@@ -11,4 +11,6 @@ public interface UserDAO {
 
 
     void eliminar(Long id);
+
+    void register(User usuario);
 }
