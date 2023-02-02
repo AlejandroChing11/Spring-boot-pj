@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserDAO usuarioDao;
 
-    @RequestMapping(value = "usuario/{id}")
+    @RequestMapping(value = "api/usuario/{id}")
     public User getUser (@PathVariable Long id) {
         User user = new User(); //Creacion del objeto
         user.setId(id);
@@ -27,12 +27,12 @@ public class UserController {
         return user; //Retornamos en formato JSON el objeto user
     }
 
-    @RequestMapping(value = "usuarios")
+    @RequestMapping(value = "api/usuarios")
     public List<User> getUsers () {
         return usuarioDao.getUsers();
     }
 
-    @RequestMapping(value = "usuario2")
+    @RequestMapping(value = "api/usuario2")
     public User editar () {
         User user = new User(); //Creacion del objeto
         user.setName("Alejandro"); //Seteamos el name
