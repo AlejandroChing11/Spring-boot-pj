@@ -33,6 +33,7 @@ public class UserDaoImp implements UserDAO{
 
     @Override
     public void register(User usuario) {
+        entityManager.detach(usuario);
         entityManager.merge(usuario);
     }
 }
