@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
-    public void registrar (@RequestBody User usuario) {
+    public void registrarUsuario (@RequestBody User usuario) {
          usuarioDao.register(usuario);
     }
 
