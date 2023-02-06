@@ -33,29 +33,9 @@ public class UserController {
          usuarioDao.register(usuario);
     }
 
-
-    @RequestMapping(value = "api/usuario2")
-    public User editar () {
-        User user = new User(); //Creacion del objeto
-        user.setName("Alejandro"); //Seteamos el name
-        user.setLastName("Ching"); //Seteamos last name OJO TODO AL OBJETO
-        user.setEmail("Alejandroching2004@hotmail.com"); //Seteamos el email
-        user.setPhoneNumber("2456788"); //Seteamos el phone number
-        return user; //Retornamos en formato JSON el objeto user
-    }
-
     @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
     public void eliminar (@PathVariable Long id) {
         usuarioDao.eliminar(id);
     }
 
-    @RequestMapping(value = "usuario4")
-    public User buscar () {
-        User user = new User(); //Creacion del objeto
-        user.setName("Alejandro"); //Seteamos el name
-        user.setLastName("Ching"); //Seteamos last name OJO TODO AL OBJETO
-        user.setEmail("Alejandroching2004@hotmail.com"); //Seteamos el email
-        user.setPhoneNumber("2456788"); //Seteamos el phone number
-        return user; //Retornamos en formato JSON el objeto user
-    }
 }
