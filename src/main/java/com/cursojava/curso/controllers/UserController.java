@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private UserDAO usuarioDao;
 
-    @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/users/{id}", method = RequestMethod.GET)
     public User getUser (@PathVariable Long id) {
         User user = new User(); //Creacion del objeto
         user.setId(id);
@@ -23,17 +23,17 @@ public class UserController {
         return user; //Retornamos en formato JSON el objeto user
     }
 
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
+    @RequestMapping(value = "api/users", method = RequestMethod.GET)
     public List<User> getUsers () {
         return usuarioDao.getUsers();
     }
 
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
+    @RequestMapping(value = "api/users", method = RequestMethod.POST)
     public void registrarUsuario (@RequestBody User usuario) {
          usuarioDao.register(usuario);
     }
 
-    @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
     public void eliminar (@PathVariable Long id) {
         usuarioDao.eliminar(id);
     }
