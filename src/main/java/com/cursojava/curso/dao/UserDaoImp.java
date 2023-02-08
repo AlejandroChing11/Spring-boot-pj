@@ -52,7 +52,7 @@ public class UserDaoImp implements UserDAO{
 
         String passwordHashed = lista.get(0).getPassword();
 
-        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2d);
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         return argon2.verify(passwordHashed, usuario.getPassword());
 
 
