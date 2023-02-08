@@ -16,8 +16,13 @@ async function iniciarSesion() {
       },
       body: JSON.stringify(datos)
     });
-    
-    const response = await request.json();
+
+    const response = await request.text();
+    if (response == "OK") {
+        window.location.href = 'usuarios.html'
+    } else {
+        alert("¡Las credenciales son incorrectas!. Por favor intente nuevamente")
+    }
 }
 
 
