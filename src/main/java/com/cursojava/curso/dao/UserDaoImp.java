@@ -44,8 +44,6 @@ public class UserDaoImp implements UserDAO{
             .setParameter("password", usuario.getPassword())
                 .getResultList();
 
-
-
         if (lista.isEmpty()) {
             return false;
         } else {
