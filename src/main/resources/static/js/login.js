@@ -16,7 +16,7 @@ async function iniciarSesion() {
       },
       body: JSON.stringify(datos)
     });
-
+    
     const response = await request.json();
 }
 
