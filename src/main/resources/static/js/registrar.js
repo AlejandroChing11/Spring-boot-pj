@@ -5,8 +5,8 @@ $(document).ready(function() {
 
 async function registrarUsuario() {
     let datos = {};
-    datos.nombre = document.getElementById('txtNombre').value;
-    datos.apellido = document.getElementById('txtApellido').value;
+    datos.name = document.getElementById('txtNombre').value;
+    datos.lastName = document.getElementById('txtApellido').value;
     datos.email = document.getElementById('txtEmail').value;
     datos.password = document.getElementById('txtPassword').value;
 
