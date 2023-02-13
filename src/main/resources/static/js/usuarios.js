@@ -10,10 +10,7 @@ async function cargarUsuarios() {
 
       const request = await fetch('api/users', {
         method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+        headers: getHeaders()
       });
       const usuarios = await request.json();
 
@@ -38,6 +35,14 @@ document.querySelector("#usuarios tbody").outerHTML = listadoHtml;
 
 }
 
+function getHeaders() {
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    }
+}
+
 
 async function eliminarUsuarios(id) {
   if (!confirm("¿Desea eliminar este usuario? ")) {
@@ -47,10 +52,7 @@ async function eliminarUsuarios(id) {
 
   const request = await fetch('api/users/' + id, {
     method: 'DELETE',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
+    headers: getHeaders()
   });
 
   location.reload();
