@@ -39,23 +39,22 @@ public class UserDaoImp implements UserDAO{
     }
 
     @Override
-    public boolean verificarCredenciales(User usuario) {
+    public User obtenerUsuarioPorCredenciales(User usuario) {
         String query = "FROM User WHERE email = :email";
         List<User> lista = entityManager.createQuery(query)
             .setParameter("email", usuario.getEmail())
                 .getResultList();
 
-
         if (lista.isEmpty()){
-            return false;
+            return null;
         }
 
         String passwordHashed = lista.get(0).getPassword();
 
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        return argon2.verify(passwordHashed, usuario.getPassword());
-
-
+        if (argon2.verify(passwordHashed, usuario.getPassword())) {
+            return lista.get(0);
+        }
+        return null;
     }
-
 }
