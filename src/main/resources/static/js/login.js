@@ -18,7 +18,7 @@ async function iniciarSesion() {
     });
 
     const response = await request.text();
-    if (response == "ERROR") {
+    if (response != 'FAIL') {
         localStorage.token = response;
         localStorage.email = datos.email;
         window.location.href = 'usuarios.html';

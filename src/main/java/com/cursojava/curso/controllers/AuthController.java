@@ -25,7 +25,7 @@ public class AuthController {
            String tokenJwt = jwtUtil.create(String.valueOf(usuarioLogeado.getId()), usuarioLogeado.getEmail());
            return tokenJwt;
        }
-       return "ERROR";
+       return "FAIL";
     }
 
 }
