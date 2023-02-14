@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     cargarUsuarios();
   $('#usuarios').DataTable();
-    atualizarEmailDelUsuario();
+    actualizarEmailDelUsuario();
 });
 
 function actualizarEmailDelUsuario() {
